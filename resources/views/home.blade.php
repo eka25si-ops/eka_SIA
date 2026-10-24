@@ -97,16 +97,19 @@
                     <div class="card-body">
                         <h5 class="card-title">About Our Application</h5>
                         <p class="card-text">Our application provides a clean and intuitive interface, allowing users to navigate easily and perform tasks efficiently. Built with Laravel and Bootstrap, it offers flexibility and responsiveness.</p>
-                       <p class="card-text">
-                        Our application provides a clean and intuitive interface...
-                      </p>
-                       <h5>Daftar Pendidikan</h5>
-                      <ul>
-                       @foreach ($list_pendidikan as $p)
-                      <li>{{ $p }}</li>
-                       @endforeach
-                       </ul>
-                        <a href="#" class="btn btn-primary">Explore More</a>
+                    <p class="card-text">
+                    Our application provides a clean and intuitive interface...
+                    </p>
+                    {{-- contoh Blade: if dan for --}}
+                    @if (count($list_pendidikan) > 5)
+                          <p>Jenjang pendidikan banyak!</p>
+                    @else
+                          <p>Jenjang pendidikan sedikit.</p>
+                    @endif
+                       @for ($i = 1; $i <= 3; $i++)
+                          <p>Perulangan ke-{{ $i }}</p>
+                       @endfor
+                      <a href="#" class="btn btn-primary">Explore More</a>
                     </div>
                 </div>
 
