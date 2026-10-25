@@ -26,7 +26,7 @@ class QuestionController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
+
     $request->validate([
         'nama'       => 'required|min:5',
         'email'      => ['required', 'email'],
@@ -41,8 +41,12 @@ class QuestionController extends Controller
         'pertanyaan.max'      => 'Pertanyaan maksimal 300 karakter',
     ]);
 
-    dd($request->all());
-     }
+    return redirect()->route('question.response')->with([
+        'nama'       => $request->input('nama'),
+        'email'      => $request->input('email'),
+        'pertanyaan' => $request->input('pertanyaan'),
+    ]);
+    }
     /**
      * Display the specified resource.
      */

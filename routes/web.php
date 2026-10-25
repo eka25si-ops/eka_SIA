@@ -3,6 +3,7 @@
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\MatakuliahController;
 use App\Http\Controllers\HomeController;
+use Illuminate\Http\Request;
 use App\Http\Controllers\QuestionController;
 use Illuminate\Support\Facades\Route;
 
@@ -35,3 +36,6 @@ Route::get('/home', [HomeController::class, 'index']);
 
 Route::post('question/store', [QuestionController::class, 'store'])
     ->name('question.store');
+
+Route::get('question/response', [QuestionController::class, 'response'])
+    ->name('question.response');
