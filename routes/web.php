@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PelangganController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -42,3 +43,10 @@ Route::get('question/response', [QuestionController::class, 'response'])
     ->name('question.response');
 
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+Route::get('/pelanggan', [PelangganController::class, 'index'])->name('pelanggan.index');
+Route::get('/pelanggan/create', [PelangganController::class, 'create'])->name('pelanggan.create');
+Route::post('/pelanggan', [PelangganController::class, 'store'])->name('pelanggan.store');
+Route::get('/pelanggan/{id}/edit', [PelangganController::class, 'edit'])->name('pelanggan.edit');
+Route::put('/pelanggan/{id}', [PelangganController::class, 'update'])->name('pelanggan.update');
+Route::delete('/pelanggan/{id}', [PelangganController::class, 'destroy'])->name('pelanggan.destroy');
