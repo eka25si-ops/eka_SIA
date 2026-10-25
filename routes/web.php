@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PelangganController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -50,3 +51,5 @@ Route::post('/pelanggan', [PelangganController::class, 'store'])->name('pelangga
 Route::get('/pelanggan/{id}/edit', [PelangganController::class, 'edit'])->name('pelanggan.edit');
 Route::put('/pelanggan/{id}', [PelangganController::class, 'update'])->name('pelanggan.update');
 Route::delete('/pelanggan/{id}', [PelangganController::class, 'destroy'])->name('pelanggan.destroy');
+
+Route::resource('user', UserController::class);

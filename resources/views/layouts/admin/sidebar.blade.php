@@ -24,6 +24,12 @@
                     <span class="sidebar-text">Pelanggan</span>
                 </a>
             </li>
+            <!-- Menu User -->
+                 <li class="nav-item {{ request()->routeIs('user.*') ? 'active' : '' }}">
+                 <a href="{{ route('user.index') }}" class="nav-link text-white fw-bold">
+                  <span class="sidebar-text">User</span>
+                    </a>
+              </li>
             <li class="nav-item mt-4">
                 <a href="#" class="nav-link text-white-50">
                     <span class="sidebar-text">Documentation <span class="badge bg-warning text-dark ms-2">v1.4</span></span>
