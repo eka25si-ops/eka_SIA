@@ -26,7 +26,7 @@ class QuestionController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-
+     {
     $request->validate([
         'nama'       => 'required|min:5',
         'email'      => ['required', 'email'],
@@ -45,6 +45,19 @@ class QuestionController extends Controller
         'nama'       => $request->input('nama'),
         'email'      => $request->input('email'),
         'pertanyaan' => $request->input('pertanyaan'),
+    ]);
+     }
+
+public function response()
+    {
+    if (!session('nama')) {
+        return redirect('/home');
+    }
+
+    return view('question-response', [
+        'nama'       => session('nama'),
+        'email'      => session('email'),
+        'pertanyaan' => session('pertanyaan'),
     ]);
     }
     /**
